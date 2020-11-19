@@ -45,7 +45,7 @@ const authorization = async (req, res, next) => {
        if(!product) {
           throw {
              status: 400,
-             message: 'product Not Found'
+             message: 'Product Not Found'
           }
        } else if(product.UserId !== req.userLogin.id) {
           throw {

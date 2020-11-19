@@ -25,7 +25,12 @@ class UserController {
          if (!user) {
             throw {
                status: 400,
-               message: `Account not found`
+               message: `Email/password didn't match`
+            }
+         } else if (user.role === 'Customer') {
+            throw {
+               status: 401,
+               message: `Not Authorized`
             }
          } else if (!compareHash(userInfo.password, user.password)) {
             throw {

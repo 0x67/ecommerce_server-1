@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
          Product.belongsTo(models.User, {
             foreignKey: 'UserId'
          })
+         Product.hasMany(models.CartDetail, {foreignKey: 'ProductId'})
       }
    };
    Product.init({
