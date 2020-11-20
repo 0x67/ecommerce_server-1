@@ -19,25 +19,44 @@ module.exports = (sequelize, DataTypes) => {
    Product.init({
       name: {
          type: DataTypes.STRING,
+         allowNull: false,
          validate: {
             notEmpty: {
                args: true,
                msg: 'Product name is required'
             },
+            notNull: {
+              args: true,
+              msg: 'Product name is required'
+            }
          }
       },
       image_url: {
          type: DataTypes.STRING,
+         allowNull: false,
          validate: {
             isUrl: {
                args: true,
                msg: 'Link is not a valid URL'
+            },
+            notEmpty: {
+              args: true,
+              msg: 'Link is required'
+            },
+            notNull: {
+              args: true,
+              msg: 'Link is required'
             }
          }
       },
       price: {
          type: DataTypes.INTEGER,
+         allowNull: false,
          validate: {
+            notNull: {
+              args: true,
+               msg: 'Product price is required'
+            },
             notEmpty: {
                args: true,
                msg: 'Product price is required'
@@ -54,7 +73,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       stock: {
          type: DataTypes.INTEGER,
+         allowNull: false,
          validate: {
+            notNull: {
+              args: true,
+              msg: 'Product stock is required'
+          },
             notEmpty: {
                args: true,
                msg: 'Product stock is required'
@@ -72,11 +96,16 @@ module.exports = (sequelize, DataTypes) => {
       UserId: DataTypes.INTEGER,
       category: {
          type: DataTypes.STRING,
+         allowNull: false,
          validate: {
             notEmpty: {
                args: true,
                msg: 'Category name is required'
-            }
+            },
+            notNull: {
+              args: true,
+              msg: 'Product stock is required'
+           },
          }
       },
    }, {
